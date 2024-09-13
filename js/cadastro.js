@@ -32,21 +32,36 @@ function montarRequest(CadastroUser){
 
 }
 
-// Ao criar o formulario troque os dados pelo que foi passado no html 
-const novoCadastro = new CadastroUser(
-    "roberio",
-    "mogato6536@konetas.com",
-    "123456",
-    "21973303060",
-    "2000-10-12"
+//função para criar um usuario apartir do formulario html
+function criarFormulario(forms){ 
+    let nome = forms.elements['nome'].value.trim();
+    let email = forms.elements['email'].value.trim();
+    let password = forms.elements['senha'].value.trim();
+    let confirmPassword = forms.elements['senhaConfirmada'].value.trim();
+    let cpf_cnpj = forms.elements['cpf_cnpj'].value.trim();
+    let dataNascimento = forms.elements['data_nascimento'].value;
+
+    //verificação de dados null
+    if (!nome || !email || !password || !confirmPassword || !cpf_cnpj || !dataNascimento) {
+        return{valid: false, mensagem:"Todos os dados são obrigatórios"}; 
+    }
+    //verificação de senha igual
+    if(password !== confirmPassword){
+
+        return {valid: false, mensagem:"Senhas não coincidem"};
+    }
+
+    //Cria o usuario
+ const formCadastro = new CadastroUser(
+    nome,
+    email,
+    password,
+    cpf_cnpj,
+    dataNascimento
 );
 
-//Use para testar o novo usuario 
-console.log(novoCadastro);
-
-// Variavel esta sendo usada para conter os dados do json 
-let userRequest = montarRequest(novoCadastro);
-
+return{ valid: true, user: formCadastro };;
+}
 
 // Função que ira fazer a conexão com a api e ira mandar os dados para cadastrar novoUsuario
 async function cadastrarUser(apiURL,userRequest){
@@ -85,14 +100,105 @@ async function cadastrarUser(apiURL,userRequest){
     }
 }
 
- 
 
-// Função que esta sendo usada para testar a requisão 
-cadastrarUser(apiURL, userRequest)
-    .then(response => {
-        console.log("Resposta recebida: ", response);
-    })
-    .catch(error => {
-        console.error(error.message);
+const buttonEnviarForms = document.getElementById('botaoCadastro');
+
+
+//Evento que apatir do click em criar conta faz toda logica de cadastro
+buttonEnviarForms.onclick = function(event){
+    event.preventDefault();
+    
+    const forms = document.querySelector('#formularioCadastrar');
+
+    let userFormulario = criarFormulario(forms);
+   
+    if (!userFormulario.valid) {
+        mostrarMensagem(false,userFormulario.mensagem);
+    }
+
+    else{
+    // Variavel esta sendo usada para conter os dados do json 
+        let userRequest = montarRequest(userFormulario);
+
+        cadastrarUser(apiURL, userRequest)
+            .then(response => {
+                console.log("Resposta recebida: ", response);
+               let  mensagem = "Cadastro realizado com sucesso"
+                mostrarMensagem(true,mensagem);
+            })
+            .catch(error => {
+                console.error(error.message);
+               let  mensagem ="Algo deu errado"
+                mostrarMensagem(false,mensagem);
+            });
+
+        }
+    }
+
+    //Função para mostrar a mensagem após enviar a requisição para api de cadastro
+    function mostrarMensagem(tipo, mensagem){
+        let containerMensagem = document.getElementById('mensagemResponse');
+        let mensagemResponse = document.getElementById('mensagem');
+        
+        containerMensagem.className = '';
+
+        if(tipo){
+            containerMensagem.classList.add('mensagemResponseOk');
+            mensagemResponse.textContent = mensagem
+        }
+        else{
+             containerMensagem.classList.add('mensagemResponseError');
+             mensagemResponse.textContent = mensagem
+        }
+
+        setTimeout(() => {
+            containerMensagem.style.opacity = '1';
+        }, 0);
+        
+    }
+    //função usada para fechar mensagem do response
+    function fechar(){
+     let mensagem = document.getElementById('mensagemResponse');
+
+     mensagem.style.opacity = '0';
+
+    }
+
+    //                  ANIMAÇÕES
+
+
+    const slides = document.querySelector('.carousel-slides');
+    const slide = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+
+    let currentIndex = 0;
+    const totalSlides = slide.length;
+
+    // Função para atualizar o carrossel e os indicadores
+    function updateCarousel() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    // Função para avançar para o próximo slide
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    // Navegação automática
+    setInterval(nextSlide, 3000); // Muda de slide a cada 3 segundos
+
+    // Atualizar o slide ao clicar nos indicadores
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
     });
+
+    // Inicialização: Define o primeiro slide como ativo
+    updateCarousel();
 

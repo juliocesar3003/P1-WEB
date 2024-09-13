@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../Css/Cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <section id="logoCadastro">
+        <div class="carousel-container">
+            <div class="carousel-slides">
+              <div class="carousel-slide">
+                <img src="../Images/img2.jpg" alt="Slide 1">
+              </div>
+              <div class="carousel-slide">
+                <img src="../Images/Dashboard - User profile UX_UI.jfif" alt="Slide 2">
+              </div>
+              <div class="carousel-slide">
+                <img src="../Images/—Pngtree—secure crypto vault 3d render_13301647.jpg" alt="Slide 3">
+              </div>
+            </div>
+        
+            <!-- Indicadores -->
+            <div class="indicators">
+              <div class="indicator"></div>
+              <div class="indicator"></div>
+              <div class="indicator"></div>
+            </div>
+          </div>
+    </section>
+    <section id="conteudoCadastro">
+        <div class="titulo">
+            <h2>Faça seu Cadastro</h2>
+            <span>Ja possui conta aqui?<a href="">Log in</a></span>
+        </div>
+        <form id="formularioCadastrar" action="" method="post">
+            <div class="formularioCadastro">
+                <input type="text" name="nome" id="nome" placeholder="Nome Completo">
+                <input type="number" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF_CNPJ">
+                <input type="date" name="data_nascimento" id="data_nascimento" placeholder="Data de Nascimento">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="text" name="senha" id="senha" placeholder="Senha">
+                <input type="text" name="senhaConfirmada" id="senhaConfirmada" placeholder="Confirme sua senha">
+                <button id="botaoCadastro" type="submit">Criar Conta</button>
+            </div>
+        </form>
+    </section>
+    <div id="mensagemResponse">
+       <span id="mensagem"></span>
+        <span class="material-symbols-outlined" onclick="fechar()">
+            close
+         </span>
+    </div>
+    
+</body>
+<script src="../JS/cadastro.js"></script>
+</html>
