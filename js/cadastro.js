@@ -41,6 +41,7 @@ function criarFormulario(forms){
     let cpf_cnpj = forms.elements['cpf_cnpj'].value.trim();
     let dataNascimento = forms.elements['data_nascimento'].value;
 
+
     //verificação de dados null
     if (!nome || !email || !password || !confirmPassword || !cpf_cnpj || !dataNascimento) {
         return{valid: false, mensagem:"Todos os dados são obrigatórios"}; 
