@@ -1,0 +1,388 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+html, body {
+    height: 100%; 
+    overflow-y: hidden; /* faz com que não haja rolagem vertical */
+}
+
+.nav
+{
+    background-color: #2B2738;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+
+
+.main 
+{
+    display: flex;
+    align-items: start;
+    height: calc(100vh - 60px); /* ajusta a altura da área principal, considerando a altura da nav bar */
+
+}
+
+.side-bar
+{
+    width: 90px;
+    height: 100%;
+    background-color: #6E54B5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+
+}
+.banner
+{
+    background: rgb(110,84,181);
+    background: linear-gradient(90deg, rgba(110,84,181,1) 0%, rgba(43,39,56,1) 100%);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 643px;
+    color: #FFFFFF;
+}
+
+.content
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    width: 100%;
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#moeda
+{
+    display: flex;
+}
+
+.right-content
+{
+    display: relative;
+    justify-content:space-between;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+.content-cartoes > h4
+{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   color: #343C6A;
+
+}
+
+.cartoes
+{
+    display: flex ;
+    align-items: row;
+    justify-content: space-between;
+    padding-left: 0%;
+}
+
+.cartao1
+{
+    background: rgb(110,84,181);
+    background: linear-gradient(90deg, rgba(110,84,181,1) 0%, rgba(43,39,56,1) 100%);
+    width: 235px;
+    height: 190px;
+    border-radius: 20px;
+    position: relative; /* necessário para o efeito de borda fosca */
+}
+
+.cartao1::before  /* colocando efeito no fundo*/
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit; /* mantem o arredondamento da borda */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* efeito de desfoque da borda */
+    pointer-events: none; /* faz com que a borda fosca não interfira na interação com a div */
+}
+
+.chipCartao
+{
+    margin-left: 45%;
+    margin-top: 10px;
+    width: 29px ;
+    height: 29px ;
+    
+}
+
+.textoSaldo > h5{
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: normal; /* tira o negrito*/
+    margin-top:10px ;
+    margin-left: 10px;
+}
+.saldo
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 1px;
+ }
+
+
+.salarioVl
+{
+    color: #FFFFFF;
+    font-size: 15px; 
+    font-weight: bold;
+    margin-left: 10px; 
+    
+}
+
+
+.titular > h5
+{
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: normal; /* tira o negrito*/
+    margin-top:5px ;
+    margin-left: 10px;
+}
+
+.textoTitular
+{
+    color: #FFFFFF;
+    font-size: 15px; 
+    font-weight: bold; /* coloca em negrito*/
+    margin-left: 10px; 
+}
+
+.validade > h5
+{
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: normal; /* tira o negrito*/
+    margin-top:5px ;
+    margin-left: 10px;
+}
+
+.textoValidade
+{
+    color: #FFFFFF;
+    font-size: 15px; 
+    font-weight: bold; /* coloca em negrito*/
+    margin-left: 10px;
+}
+
+.textoNCartao
+{
+    color: #FFFFFF;
+    font-size: 15px; 
+    font-weight: bold; /* coloca em negrito*/
+    margin-left: 10px;
+}
+
+.numCartao
+{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 14px;
+    margin-left: 10px;
+}
+
+.numCartao > img
+{
+    margin-left: 15%;
+    margin-bottom: 20px;
+}
+
+
+/* cartão 2 */
+
+.cartao2
+{
+    background-color: #C4C4C4;
+    width: 235px;
+    height: 190px;
+    border-radius: 20px;
+    margin-left: 15px;
+    position: relative;
+}
+
+.cartao2::before  /* colocando efeito no fundo do cartao2*/
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+.cartao2 >.saldo
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 1px;
+ }
+
+.cartao2 > .saldo >.textoSaldo >h5
+{
+    color: #718EBF;
+}
+
+.cartao2 > .titular > h5
+{
+    color: #718EBF;
+}
+
+.cartao2 > .validade >h5
+{
+    color: #718EBF;
+}
+
+.cartao2 > .saldo  .salarioVl
+{
+    color: #343C6A;
+}
+
+.cartao2 > .titular .textoTitular 
+{
+    color: #343C6A;
+}
+
+.cartao2 > .validade .textoValidade
+{
+    color: #343C6A;
+}
+
+.cartao2 > .numCartao .textoNCartao
+{
+    color: #343C6A;
+}
+
+
+.content-transacoes
+{
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 25px;
+
+}
+
+ .content-transacoes::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.content-transacoes > h4 
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #2B2738;
+ 
+}
+
+.transacao1
+{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+}
+
+.nomeTransacao1
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.transacao1 > h7
+{
+    color: red;
+    display: flex;
+    margin-left: 20%;
+    margin-top: 8px;
+}
+
+.transacao2
+{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.nomeTransacao2
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.transacao2 > h7
+{
+    color: green;
+    display: flex;
+    margin-left: 20%;
+    margin-top: 8px;
+}
+
+.transacao3
+{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.nomeTransacao3
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.transacao3 > h7
+{
+    color: green;
+    display: flex;
+    margin-left: 20%;
+    margin-top: 8px;
+}
+
