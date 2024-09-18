@@ -7,10 +7,10 @@ class CadastroUser {
     constructor(name,email,password,cpf_cnpj,birthday){
         this.name = name;
         this.email = email;
-        this.user_type_id = "1";
+        this.user_type_id = 1;
         this.password = password;
         this.cpf_cnpj = cpf_cnpj;
-        this.terms = "1";
+        this.terms = 1;
         this.birthday = birthday;
     }
 }
@@ -27,7 +27,7 @@ function montarRequest(CadastroUser){
         "password" : CadastroUser.password,
         "cpf_cnpj" : CadastroUser.cpf_cnpj,
         "terms" : CadastroUser.terms,
-        "birthday" :CadastroUser.birthday
+        "birthday" :CadastroUser.birthday,     
     }
 
 }
@@ -40,6 +40,7 @@ function criarFormulario(forms){
     let confirmPassword = forms.elements['senhaConfirmada'].value.trim();
     let cpf_cnpj = forms.elements['cpf_cnpj'].value.trim();
     let dataNascimento = forms.elements['data_nascimento'].value;
+
 
     //verificação de dados null
     if (!nome || !email || !password || !confirmPassword || !cpf_cnpj || !dataNascimento) {
@@ -60,7 +61,7 @@ function criarFormulario(forms){
     dataNascimento
 );
 
-return{ valid: true, user: formCadastro };;
+return{ valid: true, user: formCadastro };
 }
 
 // Função que ira fazer a conexão com a api e ira mandar os dados para cadastrar novoUsuario
@@ -111,20 +112,20 @@ buttonEnviarForms.onclick = function(event){
     const forms = document.querySelector('#formularioCadastrar');
 
     let userFormulario = criarFormulario(forms);
-   
     if (!userFormulario.valid) {
         mostrarMensagem(false,userFormulario.mensagem);
     }
 
     else{
     // Variavel esta sendo usada para conter os dados do json 
-        let userRequest = montarRequest(userFormulario);
-
+        let userRequest = montarRequest(userFormulario.user);
+        console.log(userRequest)
         cadastrarUser(apiURL, userRequest)
             .then(response => {
-                console.log("Resposta recebida: ", response);
-               let  mensagem = "Cadastro realizado com sucesso"
-                mostrarMensagem(true,mensagem);
+               console.log("Resposta recebida: ", response);
+               window.location.href = '../View/home.html';
+
+               
             })
             .catch(error => {
                 console.error(error.message);
