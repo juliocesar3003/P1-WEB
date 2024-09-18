@@ -58,7 +58,7 @@ html, body {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    width: 643px;
+    width: 100%;
     color: #FFFFFF;
 }
 
@@ -67,11 +67,12 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px;
+    padding: 20px 10px;
     width: 100%;
 }
 
 .left-content {
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,8 +85,10 @@ html, body {
 
 .right-content
 {
+    width: 40%;
     display: relative;
     justify-content:space-between;
+    align-items: center;
     flex-direction: column;
     padding: 20px;
 }
@@ -93,18 +96,22 @@ html, body {
 
 .content-cartoes > h4
 {
+   width: 100%;
    display: flex;
    justify-content: center;
+   align-self: center;
+   align-items: center;
    flex-direction: column;
    color: #343C6A;
 
 }
 
 .cartoes
-{
+{   
+    width: 100%;
     display: flex ;
     align-items: row;
-    justify-content: space-between;
+    justify-content: stretch;
     padding-left: 0%;
 }
 
@@ -112,8 +119,8 @@ html, body {
 {
     background: rgb(110,84,181);
     background: linear-gradient(90deg, rgba(110,84,181,1) 0%, rgba(43,39,56,1) 100%);
-    width: 235px;
-    height: 190px;
+    width: 50%;
+    height: 100%;
     border-radius: 20px;
     position: relative; /* necessário para o efeito de borda fosca */
 }
@@ -230,8 +237,8 @@ html, body {
 .cartao2
 {
     background-color: #C4C4C4;
-    width: 235px;
-    height: 190px;
+    width: 50%;
+    height: 100%;
     border-radius: 20px;
     margin-left: 15px;
     position: relative;
@@ -300,7 +307,7 @@ html, body {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    margin-top: 25px;
+    margin-top: 15px;
 
 }
 
