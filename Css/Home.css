@@ -413,3 +413,36 @@ button {
   button:hover {
     background-color: #718EBF; 
   }
+
+  #mensagemResponse{
+    opacity: 0;
+    position: absolute;
+    background-color: #1c9e61;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    top: 1%;
+    left: 64%;
+    width: 650px;
+    height: 60px;
+    color: var(--secondary-color);
+    font-size: 18px;
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    border-radius: 4px;
+    transition: opacity 500ms;
+
+}
+#mensagemResponse > span:nth-child(1) {
+    color: #FFFFFE;
+}
+
+#mensagemResponse > span:nth-child(2) {
+    cursor: pointer;
+    color: #FFFFFE;
+
+}

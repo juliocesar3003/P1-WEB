@@ -4,13 +4,13 @@ const apiURL ="https://go-wash-api.onrender.com/api/user"
 
 //Classe utilizada para criar novoUsuario que sera cadastrado
 class CadastroUser {
-    constructor(name,email,password,cpf_cnpj,birthday){
+    constructor(name,email,password,cpf_cnpj,birthday,terms){
         this.name = name;
         this.email = email;
         this.user_type_id = 1;
         this.password = password;
         this.cpf_cnpj = cpf_cnpj;
-        this.terms = 1;
+        this.terms = terms;
         this.birthday = birthday;
     }
 }
@@ -40,7 +40,9 @@ function criarFormulario(forms){
     let confirmPassword = forms.elements['senhaConfirmada'].value.trim();
     let cpf_cnpj = forms.elements['cpf_cnpj'].value.trim();
     let dataNascimento = forms.elements['data_nascimento'].value;
+    let termos = forms.elements['termoscheck'].checked;
 
+    console.log(termos)
 
     //verificação de dados null
     if (!nome || !email || !password || !confirmPassword || !cpf_cnpj || !dataNascimento) {
@@ -51,6 +53,10 @@ function criarFormulario(forms){
 
         return {valid: false, mensagem:"Senhas não coincidem"};
     }
+    if(termos == 0){
+
+        return {valid: false, mensagem:"voce não aceitou os termos"};
+    }
 
     //Cria o usuario
  const formCadastro = new CadastroUser(
@@ -58,10 +64,12 @@ function criarFormulario(forms){
     email,
     password,
     cpf_cnpj,
-    dataNascimento
+    dataNascimento,
+    Number(termos)
 );
 
-return{valid: true, user: formCadastro};
+//    objeto dinamico criado na resposta da função 
+  return{valid: true, user: formCadastro};
 }
 
 // Função que ira fazer a conexão com a api e ira mandar os dados para cadastrar novoUsuario
@@ -87,17 +95,17 @@ async function cadastrarUser(apiURL,userRequest){
                 errorData = await response.json();
             } catch (jsonError) {
                 // Se não for possível parsear como JSON, deixa a mensagem padrão
-                console.warn("Resposta de erro não é JSON:", jsonError);
+                throw new Error("Resposta de erro não é JSON:", jsonError);
             }
             
-            throw new Error(`Erro: ${response.status} - ${response.statusText}. Detalhes: ${JSON.stringify(errorData.data.errors)}`);
+            throw new Error(JSON.stringify(errorData.data.errors));
         }
 
         const data = await response.json();  
         return data;
 
     } catch (error) {
-        throw new Error(`Erro de conexão ou falha na requisição: ${error.message}`);
+        throw new Error(` ${error.message}`);
     }
 }
 
@@ -122,15 +130,13 @@ buttonEnviarForms.onclick = function(event){
 
         cadastrarUser(apiURL, userRequest)
             .then(response => {
-               console.log("Resposta recebida: ", response);
                window.location.href = '../View/home.html';
 
                
             })
             .catch(error => {
                 console.error(error.message);
-               let  mensagem ="Algo deu errado"
-                mostrarMensagem(false,mensagem);
+                mostrarMensagem(false,error.message);
             });
 
         }
@@ -144,7 +150,10 @@ buttonEnviarForms.onclick = function(event){
         containerMensagem.className = '';
 
         if(tipo){
+            // atribui uma classe css a esse elemento html
             containerMensagem.classList.add('mensagemResponseOk');
+            // atiribui um texto que sera colocado dentro do span
+            // o texto sera atribuido conforme a função que esta chamando ele 
             mensagemResponse.textContent = mensagem
         }
         else{
@@ -158,6 +167,7 @@ buttonEnviarForms.onclick = function(event){
         
     }
     //função usada para fechar mensagem do response
+    // só muda a visibilidade para zero 
     function fechar(){
      let mensagem = document.getElementById('mensagemResponse');
 
