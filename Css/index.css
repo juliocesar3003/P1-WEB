@@ -1,0 +1,146 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body
+{
+    display: flex;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.right-content
+{
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    position: relative;            
+}
+
+#fundo
+{
+    flex: 1;
+    width: 750px;              
+    height: 100vh;             
+    object-fit: cover;       
+}
+
+#imagemindex
+{
+    position: absolute; 
+    top: 5%; 
+    left: 19%; 
+    width: 583px; 
+    height: auto;
+    z-index: 1; 
+}
+
+.left-content {
+    flex: 1; /*ajusta o lado esquerdo*/
+    
+}
+
+.nav-bar
+{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: row;
+    justify-content: flex-start;
+    
+}
+
+.navTexto
+{
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.navLista
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    white-space: nowrap;
+}
+
+.navBotao
+{
+    background-color: transparent;
+    border: none;
+    color: #343C6A ;
+    font: normal;
+    font-size:15px;
+    display: flex;
+    justify-content:space-between;
+    padding: 4px;
+    margin-left: 15px;
+}
+
+.textoCentro
+{
+    display: flex; 
+    justify-content: flex-start; 
+    flex-direction: column; 
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#textoC1
+{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#textoC2
+{
+    font-size: 30px;
+}
+
+.botaoCadastro
+{
+    display: flex; 
+    justify-content: flex-start; 
+    flex-direction: column; 
+    align-items: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.botaoCadastro > button
+{
+    background: rgb(110,84,181);
+    background: linear-gradient(90deg, rgba(110,84,181,1) 0%, rgba(43,39,56,1) 100%);
+    color: #fff;
+    font-size: 24px;
+    width: 317px;
+    height: 60px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 50px;
+}
+
+.botaoCadastro > a
+{
+    margin-top: 15px;
+    color: #343C6A;
+    font-weight: bolder;
+    display: flex;
+    align-items: flex-start;
+}
+
+.botaoCadastro > a button
+{
+    background-color: transparent;
+    border: none;
+    color: #343C6A ;
+    font-size:16px;
+    margin-left: 10px;
+}
