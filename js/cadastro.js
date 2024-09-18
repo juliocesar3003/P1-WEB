@@ -61,7 +61,7 @@ function criarFormulario(forms){
     dataNascimento
 );
 
-return{ valid: true, user: formCadastro };
+return{valid: true, user: formCadastro};
 }
 
 // Função que ira fazer a conexão com a api e ira mandar os dados para cadastrar novoUsuario
@@ -76,7 +76,7 @@ async function cadastrarUser(apiURL,userRequest){
             body: JSON.stringify(userRequest),
         })
 
-        console.log("Status Code: ", response.status);
+        
 
         //Trata os erros caso o response seja um erro
         if (!response.ok) {
@@ -119,7 +119,7 @@ buttonEnviarForms.onclick = function(event){
     else{
     // Variavel esta sendo usada para conter os dados do json 
         let userRequest = montarRequest(userFormulario.user);
-        console.log(userRequest)
+
         cadastrarUser(apiURL, userRequest)
             .then(response => {
                console.log("Resposta recebida: ", response);
