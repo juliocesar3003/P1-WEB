@@ -42,7 +42,7 @@ function criarFormulario(forms){
     let dataNascimento = forms.elements['data_nascimento'].value;
     let termos = forms.elements['termoscheck'].checked;
 
-    console.log(termos)
+    
 
     //verificação de dados null
     if (!nome || !email || !password || !confirmPassword || !cpf_cnpj || !dataNascimento) {
@@ -131,11 +131,8 @@ buttonEnviarForms.onclick = function(event){
         cadastrarUser(apiURL, userRequest)
             .then(response => {
                window.location.href = '../View/home.html';
-
-               
             })
             .catch(error => {
-                console.error(error.message);
                 mostrarMensagem(false,error.message);
             });
 
