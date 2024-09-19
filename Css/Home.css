@@ -462,6 +462,9 @@ button {
     .left-content{
         width: 55%;
     }
+    #mensagemResponse{
+        left: 52%;
+    }
 }
 .containerGrafico {
     display: grid;
