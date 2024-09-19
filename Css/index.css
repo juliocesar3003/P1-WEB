@@ -11,20 +11,20 @@ body
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     height: 100vh;
     overflow-y: hidden;
     box-sizing: border-box;
 }
 
 .right-content
-{ 
-    width: 55%;
+{
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     position: relative;
     box-sizing: border-box;
+    flex: 1;
 }
 
 #fundo
@@ -36,20 +36,14 @@ body
 
 #imagemindex
 {
-    position: absolute; 
-    top: 10%;
-    left: 25%; 
-    width: 750px;
-    height: auto;
-    z-index: 1; 
+    width: 100%;
+    height: 100%;
 }
 
 .left-content 
 {
-    max-width: 45%;
-  
-   
-    
+    flex: 1;
+    margin-right: -10%;
 }
 
 .nav-bar
@@ -68,7 +62,6 @@ body
     display: flex;
     justify-content: space-around;
     align-content: space-around;
-
    
 }
 
@@ -82,6 +75,7 @@ body
     list-style-type: none;
     white-space: nowrap;
 }
+
 
 .navBotao
 {
@@ -97,6 +91,11 @@ body
     cursor: pointer;
 }
 
+.navBotao:hover
+{
+    transform: translateY(-5px);
+}
+
 .textoCentro
 {
     display: flex; 
@@ -110,12 +109,12 @@ body
 #textoC1
 {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #textoC2
 {
-    font-size: 40px;
+    font-size: 25px;
 }
 
 .botaoCadastro
@@ -138,12 +137,21 @@ body
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 50px;
+    cursor: pointer;           /* Muda o cursor para uma mãozinha */
+    transition: transform 0.3s ease;
 }
+
+.botaoCadastro > button:hover
+{
+    transform: translateY(-5px);
+}
+
 .botaoCadastro > button > a
 {
     color: #fff;
     text-decoration: none;
     font-size: 24px;
+    cursor: pointer; 
 }
 
 .botaoCadastro > a
@@ -162,4 +170,26 @@ body
     color: #343C6A ;
     font-size:16px;
     margin-left: 10px;
+    cursor: pointer;
+}
+
+#teste {
+    display: none;
+}
+
+@media (max-width: 1200px)
+{
+    body {
+        flex-direction: column;
+        overflow-y: auto;
+        align-items: center;
+    }
+
+    #teste {
+        display: block;
+    }
+
+    #imagemindex {
+        display: none;
+    }
 }
