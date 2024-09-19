@@ -80,7 +80,7 @@ html, body {
 
 #moeda
 {
-    display: flex;
+    display: flex;  
 }
 
 .right-content
@@ -452,4 +452,12 @@ button {
     cursor: pointer;
     color: #FFFFFE;
 
+}
+@media screen and (max-width: 1366px) {
+    .right-content{
+        width: 45%;
+    }
+    .left-content{
+        width: 55%;
+    }
 }
