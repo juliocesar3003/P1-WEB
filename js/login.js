@@ -25,7 +25,7 @@ async function cadastrarUser(apiURL, request) {
     }
 
     if(data.data && data.data.errors){
-        alert(data.data.errors)
+        mostrarMensagem(false,data.data.errors)
         return
     }
     

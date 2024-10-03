@@ -47,7 +47,19 @@ html, body {
 {
     cursor: pointer;
 }
+.endereco{
+    text-decoration: none;
+    color: #FDFCFE;
+    font-size: 13px;
+}
+.endereco:nth-child(2){
+    color: #E0DAEF;
+}
 
+.iconEndereco{
+    width: 30px;
+    height: 30px;
+}
 
 .banner
 {
