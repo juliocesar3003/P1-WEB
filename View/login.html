@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/Login.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="main">
+        <div class="contCentro">
+            <div class="right-content">
+                <image src="../Images/loginImg.png"/>
+            </div>
+            <div class="left-content">
+                <form class="formularioLogin">
+                    <h3>Login</h3>
+                    <div id="formularioLogin">
+                        <input type="email" name="email" id="email" placeholder="Email">
+                        <input type="password" name="senha" id="senha" placeholder="Senha">
+                        <button id="botaoLogin" onclick="cadastrarUser()">Entrar</button>
+                    </div>
+                    <h5>Não tem conta?<button><a href="Cadastro.html">Cadastre-se já</a></button></h5>
+                </form>
+                <div id="mensagemResponse">
+                    <span id="mensagem"></span>
+                     <span class="material-symbols-outlined" onclick="fechar()">
+                         close
+                      </span>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 <script src="../JS/login.js"></script>
 </html>
