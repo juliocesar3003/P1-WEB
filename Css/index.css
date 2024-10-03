@@ -42,8 +42,12 @@ body
 
 .left-content 
 {
+
     flex: 1;
     margin-right: -10%;
+    max-width: 45%;
+    
+
 }
 
 .nav-bar

@@ -58,7 +58,7 @@ html, body {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    width: 643px;
+    width: 100%;
     color: #FFFFFF;
 }
 
@@ -67,44 +67,57 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px;
+    padding: 20px 10px;
     width: 100%;
 }
 
 .left-content {
+    width: 60%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+    
 }
 
 #moeda
 {
-    display: flex;
+    display: flex;  
 }
 
 .right-content
 {
+    width: 40%;
+    height: 100vh;
     display: relative;
     justify-content:space-between;
+    align-items: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 0px 20px ;
+    gap: 10px;
+    
 }
 
 
 .content-cartoes > h4
 {
+   width: 100%;
    display: flex;
    justify-content: center;
+   align-self: center;
+   align-items: center;
    flex-direction: column;
    color: #343C6A;
 
 }
 
 .cartoes
-{
+{   
+    width: 100%;
     display: flex ;
     align-items: row;
-    justify-content: space-between;
+    justify-content: stretch;
     padding-left: 0%;
 }
 
@@ -112,8 +125,8 @@ html, body {
 {
     background: rgb(110,84,181);
     background: linear-gradient(90deg, rgba(110,84,181,1) 0%, rgba(43,39,56,1) 100%);
-    width: 235px;
-    height: 190px;
+    width: 50%;
+    height: 100%;
     border-radius: 20px;
     position: relative; /* necessário para o efeito de borda fosca */
 }
@@ -230,8 +243,8 @@ html, body {
 .cartao2
 {
     background-color: #C4C4C4;
-    width: 235px;
-    height: 190px;
+    width: 50%;
+    height: 100%;
     border-radius: 20px;
     margin-left: 15px;
     position: relative;
@@ -300,7 +313,7 @@ html, body {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    margin-top: 25px;
+    margin-top: 15px;
 
 }
 
@@ -413,3 +426,189 @@ button {
   button:hover {
     background-color: #718EBF; 
   }
+
+  #mensagemResponse{
+    opacity: 0;
+    position: absolute;
+    background-color: #1c9e61;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    top: 1%;
+    left: 64%;
+    width: 650px;
+    height: 60px;
+    font-size: 18px;
+    color: #FFFFFE;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    border-radius: 4px;
+    transition: opacity 500ms;
+
+}
+
+
+#mensagemResponse > span:nth-child(2) {
+    cursor: pointer;
+
+}
+@media screen and (max-width: 1366px) {
+    .right-content{
+        width: 45%;
+    }
+    .left-content{
+        width: 55%;
+    }
+    #mensagemResponse{
+        left: 52%;
+    }
+}
+.containerGrafico {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding-top: 10px;
+    width: 100%;
+    height: 40vh;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+/* Valores de débito e crédito */
+.valoresGrafico {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.valoresGrafico > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Gráfico centralizado e com espaçamento uniforme */
+.grafico {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 7 colunas para cada mês */
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-items: end;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    
+}
+
+/* Cada par de números (gráfico) */
+.mes {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: end;
+    gap: 5px;
+}
+
+.mes > div {
+    width: 40px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: height 1.5s ease; /* Transição suave */
+    animation: growBar 1.5s ease-out forwards; 
+    height: 0;
+}
+
+/* Define cores para débito e crédito */
+.mes > div:nth-child(1) {
+    background-color: #dc3545; /* Debito */
+}
+
+.mes > .numeros:nth-child(2) {
+    background-color: #1c9e61; /* Crédito */
+}
+
+/* Nome do mês centralizado */
+.nomeMes {
+    display: grid;
+    position: relative;
+    bottom: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+/* Caixa de débito e crédito */
+.debito, .creditado {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.debito {
+    background-color: #dc3545;
+}
+
+.creditado {
+    background-color: #1c9e61;
+}
+.mes:nth-child(1) div:nth-child(1) {
+    height: 60%;
+}
+.mes:nth-child(1) .numeros:nth-child(2) {
+    height: 80%;
+}
+.mes:nth-child(2) .numeros:nth-child(1) {
+    height: 80%;
+}
+.mes:nth-child(2) .numeros:nth-child(2) {
+    height: 90%;
+}
+.mes:nth-child(3) .numeros:nth-child(1) {
+    height: 40%;
+}
+.mes:nth-child(3) .numeros:nth-child(2) {
+    height: 90%;
+}
+.mes:nth-child(4) .numeros:nth-child(1) {
+    height: 80%;
+}
+.mes:nth-child(4) .numeros:nth-child(2) {
+    height: 50%;
+}
+.mes:nth-child(5) .numeros:nth-child(1) {
+    height: 80%;
+}
+.mes:nth-child(5) .numeros:nth-child(2) {
+    height: 80%;
+}
+.mes:nth-child(6) .numeros:nth-child(1) {
+    height: 30%;
+}
+.mes:nth-child(6) .numeros:nth-child(2) {
+    height: 90%;
+}
+.mes:nth-child(7) .numeros:nth-child(1) {
+    height: 50%;
+}
+.mes:nth-child(7) .numeros:nth-child(2) {
+    height: 80%;
+}
+@keyframes growBar {
+    0% {
+        height: 0;
+    }
+    
+}
