@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../Css/Login.css">
     <title>Login</title>
     <link rel="stylesheet" href="../Css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 </head>
 <body>
     <div class="main">
@@ -14,12 +15,12 @@
                 <image src="../Images/loginImg.png"/>
             </div>
             <div class="left-content">
-                <form class="formularioLogin">
+                <form id="formularioLogin" method="post">
                     <h3>Login</h3>
                     <div id="formularioLogin">
                         <input type="email" name="email" id="email" placeholder="Email">
                         <input type="password" name="senha" id="senha" placeholder="Senha">
-                        <button id="botaoLogin" onclick="cadastrarUser()">Entrar</button>
+                        <button id="botaoLogin" type="submit">Entrar</button>
                     </div>
                     <h5>Não tem conta?<button><a href="Cadastro.html">Cadastre-se já</a></button></h5>
                 </form>

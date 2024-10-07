@@ -7,7 +7,36 @@
     <link rel="stylesheet" href="../Css/endereco.css">
 </head>
 <body>
+    <div class="main">
+        <div class="contCentro">
+            <div class="right-content">
+                <image src="../Images/localImg.png"/>
+            </div>
+            <div class="left-content">
+                <button id="btnVoltar"><a href="home.html"><img src="../Images/botaoVoltar.png"></button>
+                <form class="formularioEndereco">
+                    <h3>Onde você mora?</h3>
+                    <div id="formularioEndereco">
+                        <input type="text" name="titulo" id="titulo" placeholder="Titulo">
+                        <input type="number" name="cep" id="cep" placeholder="Cep">
+                        <input type="text" name="endereco" id="endereco" placeholder="Endereco">
+                        <input type="number" name="numero" id="numero" placeholder="Nº">
+                        <input type="text" name="complemento" id="complemento" placeholder="Complemento">
+                        <button id="botaoLogin" onclick="cadastrarUser()">Cadastrar</button>
+                    </div>
+                    <!-- <h5>Não tem conta?<button><a href="Cadastro.html">Cadastre-se já</a></button></h5> -->
+                </form>
+                <div id="mensagemResponse" >
+                    <span id="mensagem"></span>
+                     <span class="material-symbols-outlined" onclick="fechar()">
+                         close
+                      </span>
+                 </div>
+            </div>
+        </div>
+    </div>
+
     
 </body>
-<script src="../JS/endereco.js"></script>
+<script src="../js/endereco.js"></script>
 </html>
