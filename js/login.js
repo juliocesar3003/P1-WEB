@@ -41,7 +41,7 @@
   
 //   }
 
-const apiURL = "https://go-wash-api.onrender.com/api/login&#39";
+const apiURL = "https://go-wash-api.onrender.com/api/login";
 
 
 //Classe utilizada para criar novoUsuario que sera cadastrado
@@ -115,7 +115,7 @@ async function cadastrarUser(apiURL,userRequest){
                 errorData = await response.json();
             } catch (jsonError) {
                 // Se não for possível parsear como JSON, deixa a mensagem padrão
-                throw new Error("Resposta de erro não é JSON:", jsonError);
+                throw new Error("Erro inesperado, contate o suporte");
                 
             }
             
@@ -123,7 +123,7 @@ async function cadastrarUser(apiURL,userRequest){
         }
 
         const data = await response.json();
-        localStorage.setItem("user",data)  
+        localStorage.setItem("user",JSON.stringify(data))  
         return data;
 
     } catch (error) {
@@ -150,6 +150,7 @@ buttonEnviarForms.onclick = function(event){
     // Variavel esta sendo usada para conter os dados do json 
         let userRequest = montarRequest(userFormulario.user);
 
+        console.log(userRequest)
         cadastrarUser(apiURL, userRequest)
             .then(response => {
                window.location.href = '../View/home.html';
