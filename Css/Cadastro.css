@@ -12,7 +12,7 @@
     --primary-color: #6E54B5;
     --secondary-color: #FFFFFE;
     --font-size: 16px;
-    --titulo-1:60px;
+    --titulo-1:40px;
     --titulo-2:20px;
     --font:'Mona Sans', sans-serif;
   }
@@ -95,7 +95,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
 }
 
 .titulo{
@@ -104,7 +104,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 40px;
+    gap: 10px;
 }
 
 .titulo > h2{
@@ -117,7 +117,11 @@ body{
 
 
 }
-.titulo > span{
+.loginIndex{
+    display: flex;
+    flex-direction: column;
+}
+.loginIndex > span{
     font-size: var(--titulo-2);
     color: var(--color-input);
     font-family: var(--font);

@@ -1,6 +1,7 @@
 function out(botao) {
     botao.addEventListener('click', () => {
-        window.location.href = '../View/Cadastro.html';
+        localStorage.removeItem('user');
+        window.location.href = '../View/index.html';
     });
 }
 

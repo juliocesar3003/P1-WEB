@@ -1,0 +1,82 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.nav
+{
+    background-color: #d2d2d2;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav > h2
+{
+    flex-grow: 1;
+    text-align: center;
+    color: #343C6A;
+}
+
+.content
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.left-content
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.left-content > img
+{
+    position: relative;
+    display: flex;
+    justify-content: left;
+}
+
+.endereco {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: 15%    ;
+  }
+  
+  .endereco img {
+    margin-right: 10px;
+  }
+  
+  .endereco .txtEndereco{
+    margin: 0;
+  }
+  
+  .endereco .txtEndereco {
+    font-size: 14px;
+  }
+
+@media (max-width: 768px) {
+    .iconMapa {
+      max-width: 100%; /* Faz os blocos ocuparem toda a largura da tela */
+    }
+    
+    .body {
+      flex-direction: column; /* Alinha verticalmente em telas menores */
+      align-items: center;
+    }
+
+    .image-right {
+        display: none;
+    }
+}

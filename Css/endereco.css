@@ -119,9 +119,9 @@
     left: 78%;
     width: 300px;
     height: 60px;
-    color: var(--secondary-color);
+    color: white;
     font-size: 18px;
-    font-family: var(--font);
+    font-family: 13px;
     font-style: normal;
     font-weight: 600;
     line-height: 32px;
