@@ -40,7 +40,7 @@ function criarFormulario(forms){
   
 
   //verificação de dados null
-  if (!titulo || !cep || !endereco || !numero || !complemento ) {
+  if (!titulo || !cep || !endereco || !numero) {
       return{valid: false, mensagem:"Todos os dados são obrigatórios"}; 
   }
 
@@ -66,7 +66,7 @@ try{
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${tolken}`
+              'Authorization': `Bearer ${token}`
           },
           body: JSON.stringify(enderecoRequest),
       })

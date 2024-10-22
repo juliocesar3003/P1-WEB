@@ -34,10 +34,36 @@
 
 .left-content
 {
+    width: 80%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 10px;
     flex-direction: column;
+}
+#blocoloading{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#loading{
+  border-radius: 100%;
+  border: 12px solid #343C6A;
+  width: 60px;
+  height: 60px;
+  border-top: 12px solid transparent;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+  
 }
 
 .left-content > img
@@ -48,6 +74,7 @@
 }
 
 .endereco {
+   
     display: flex;
     align-items: flex-start;
     margin-bottom: 20px;
@@ -65,6 +92,38 @@
   .endereco .txtEndereco {
     font-size: 14px;
   }
+.buttonCadastro{
+    border: none;
+    background-color: #6E54B5;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    width: 200px;
+    height: 50px;
+}
+.buttonCadastro > a{
+  text-decoration: none;
+  color: #dfdfdc;
+}
+.buttonCadastro:hover{
+  animation: tamanho 1s linear infinite;
+}
+
+@keyframes tamanho {
+  0%{
+    scale: 1;
+  }
+  50%{
+    scale: 1.05;
+  }
+  100%{
+    scale:1;
+  }
+  
+}
 
 @media (max-width: 768px) {
     .iconMapa {
