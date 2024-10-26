@@ -20,8 +20,6 @@ async function recuperarEndereço(user) {
         throw new Error(`${error.message}`); 
     }
     
-
-   
 }
 
 document.addEventListener('DOMContentLoaded',() =>{
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded',() =>{
 
 recuperarEndereço(user)
             .then(response => {
-                console.log(response)
                 if(response.data.length == 0){
                     console.log("não tem nenhum endereço cadastrado ")
                 }
@@ -38,7 +35,7 @@ recuperarEndereço(user)
 
             })
             .catch(error => {
-                console.log(error +" :deu algum erro")
+               
             })
             .finally(() => {
                 document.getElementById('loading').style.display = 'none';
@@ -62,12 +59,83 @@ function construirLista(item,ordem){
    h7.innerHTML = `Endereço ${ordem}`;
    
    let h4 = document.createElement('h4');
-   h4.innerHTML = item.formatted_address
-   ;
+   h4.innerHTML = `${item.title}, ${item.address}, ${item.number} - cep: ${item.cep}, complemento: ${item.complement}`;
    
+   let imgSeta = document.createElement('img');
+   imgSeta.src =  '../Images/icons8-cardápio-50.png'; 
+
+   var buttonMenu = document.createElement('button');
+   buttonMenu.appendChild(imgSeta)
+   h4.appendChild(buttonMenu);
+   
+   var containerMenu = document.createElement('div')
+   containerMenu.classList.add('containerMenu')
+   containerMenu.style.display = "none"; 
+
+   var buttonEditar = document.createElement('button');
+   buttonEditar.innerText = "Editar"
+
+
+   containerMenu.appendChild(buttonEditar);
+   
+   let buttonDeletar = document.createElement('button');
+   buttonDeletar.innerText = "Deletar"
+   containerMenu.appendChild(buttonDeletar);
+ 
+
+   h4.appendChild(containerMenu)
    txtEndereco.appendChild(h7);
    txtEndereco.appendChild(h4);
    novoEndereco.appendChild(img);
    novoEndereco.appendChild(txtEndereco);
    blocosEndereco.appendChild(novoEndereco);
+
+   buttonMenu.addEventListener("click", function(){
+    if( buttonEditar.style.display === "none" && buttonDeletar.style.display === "none" ){
+        containerMenu.style.display ="flex"
+         buttonEditar.style.display = "block"
+          buttonDeletar.style.display = "block"
+
+    }else{
+          containerMenu.style.display = "none"
+          buttonEditar.style.display = "none"
+          buttonDeletar.style.display = "none"
+    }
+})
+
+    
+        buttonEditar.addEventListener("click", function(){
+           
+        
+            let titulo = document.getElementById('titulo');
+            titulo.value = item.title
+
+            let cep = document.getElementById('cep');
+            cep.value = item.cep;
+
+            let endereco = document.getElementById('endereco');
+            endereco.value = item.address;
+
+            let numero = document.getElementById('numero');
+            numero.value = item.number;
+
+            let complemento = document.getElementById('complemento');
+            complemento.value = item.complement;
+
+            let modal = document.getElementById("containerModal")
+            let body = document.getElementById("main")
+           
+            let botaoSalvar = document.getElementById("botao")
+            botaoSalvar.value = item.id
+
+
+            body.classList.remove("mainFechado");
+            body.classList.add('Layoutmain')
+            modal.style.display = "block"
+        })
+    
+
 }
+
+
+

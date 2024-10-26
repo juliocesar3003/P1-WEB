@@ -8,19 +8,29 @@
 
 .main-atlEndereco
 {
-    background: rgb(52,60,106);
-    background: radial-gradient(circle, rgba(52,60,106,1) 0%, rgba(59,54,76,1) 100%);
-    width: 800px;
-    height: 450px;
+    display: none;
+    width: 70%;
+    height: 60%;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra para o efeito saltado */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: absolute;
-    top: 18%; 
-    left: 20%;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
     box-sizing: border-box;
 }
+.Layoutmain{  
+    width: 100%;
+    height: 100%;
+    filter: blur(5px); 
+    background: rgba(0, 0, 0, 0.08);
+}
+.mainFechado{
+    filter: none; 
+    background: none;
+}
+
 
 #imgAtl
 {
@@ -67,44 +77,54 @@
 {
     flex: 1;
     background-color: #fff;
-    padding: 50px;
+    padding: 0px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-#btnVoltar 
-{
+.fecharModal
+{  
+    cursor: pointer;
     background-color: transparent;
     border: none;
     display: flex;
     align-self: flex-end;
     position: relative;
-    bottom: 6%;
+    bottom: 50%;
 }
 
 
-.formularioEndereco{
-
-
+.formularioAtualizar{
     box-sizing: border-box;
-    height: 300px;
+    height: 100%;
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra para o efeito saltado */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
-    overflow-x: hidden;
-    overflow-y:auto;
+    
 
 }
 
+#formulario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+}
+#formulario >input:nth-child(3){
+    grid-column: 1/3;
+}
+#formulario >button{    
+    grid-column: 1/3;
+}
 
-#formularioEndereco > input 
+
+#formulario > input 
 {
-    
     width: 100%;
     padding: 15px;
     margin: 10px 0;
@@ -114,10 +134,11 @@
     color: #333;
 }
 
-#botaoEndereco
+#botao
 {
     
     width: 100%;
+    height: 80%;
     padding: 15px;
     background-color: #2C2A3A; 
     color: #fff;
@@ -127,7 +148,7 @@
     cursor: pointer;
 }
 
-#botaoEndereco:hover {
+#botao:hover {
     background-color: #6E54B5;
 }
     

@@ -15,6 +15,16 @@
     justify-content: center;
     align-items: center;
 }
+#btnVoltar 
+{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-self: flex-end;
+    position: relative;
+    bottom: 6%;
+}
+
 
 .contCentro
 {
