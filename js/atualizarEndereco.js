@@ -19,7 +19,7 @@ function fechar() {
     let numero = document.getElementById('numero').value.trim();
     let complemento = document.getElementById('complemento').value.trim();
     let id = document.getElementById("botao").value;
-    console.log(id)
+   
     
 
 

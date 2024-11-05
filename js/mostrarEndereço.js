@@ -30,7 +30,7 @@ recuperarEndereço(user)
                 if(response.data.length == 0){
                     console.log("não tem nenhum endereço cadastrado ")
                 }
-                console.log(response.data[0])
+               
                 response.data.forEach((item, index) => construirLista(item,index + 1))
 
             })
@@ -57,6 +57,8 @@ function construirLista(item,ordem){
    
    let h7 = document.createElement('h7');
    h7.innerHTML = `Endereço ${ordem}`;
+
+   
    
    let h4 = document.createElement('h4');
    h4.innerHTML = `${item.title}, ${item.address}, ${item.number} - cep: ${item.cep}, complemento: ${item.complement}`;
