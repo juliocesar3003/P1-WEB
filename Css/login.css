@@ -62,7 +62,7 @@
 
 
 
-.formularioLogin{
+.formularioLoginForm{
     width: 100%;
     max-width: 350px;
     text-align: center;
@@ -75,7 +75,7 @@
 }
 
 
-#formularioLogin > input 
+#formularioLoginForm > input 
 {
     width: 100%;
     padding: 15px;
@@ -86,7 +86,7 @@
     color: #333;
 }
 
-#formularioLogin > button
+#formularioLoginForm > button
 {
     width: 100%;
     padding: 15px;
@@ -98,16 +98,16 @@
     cursor: pointer;
 }
 
-#formularioLogin>  button:hover {
+#formularioLoginForm>  button:hover {
     background-color: #6E54B5;
 }
     
-.formularioLogin > h3
+.formularioLoginForm > h3
 {
     color: #2C2A3A
 }
 
-.formularioLogin > h5
+.formularioLoginForm > h5
 {
     color: #2C2A3A;
     font-size:16px;
@@ -115,7 +115,7 @@
     margin-top: 10%;
 }
 
-.formularioLogin > h5 > button
+.formularioLoginForm > h5 > button
 {
     background-color: transparent;
     border: none;
@@ -125,7 +125,7 @@
     cursor: pointer;
 }
 
-.formularioLogin> h5 > button:hover {
+.formularioLoginForm> h5 > button:hover {
    color: #6E54B5;
    text-decoration: underline;
 }
