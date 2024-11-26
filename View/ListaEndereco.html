@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/listaEndereco.css">
     <link rel="stylesheet" href="../css/atualizarEnd.css">
+    <link rel="stylesheet" href="../css/deletarEnd.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <title>Enderecos</title>
 </head>
@@ -56,10 +57,26 @@
                 </div>
             </div>
         </div>
+        <div class="delete" id="delete">
+         
+            <div class="textDelete">
+                <p id="nomeDoCliente"></p>
+                <div id="mensagemDelete">
+                    <p>O endereço será removido permanentemente da sua lista.</p>
+                    <p>Deseja excluir mesmo assim?</p>
+                </div>
+                <div class="buttons">
+                    <a><button class="buttonVoltar" id="btnVoltar" onclick="fecharDelete()">Voltar</button></a>
+                    <a><button class="buttonExcluir" id="btnExcluir" >Excluir</button></a>
+                </div>
+            </div>
+        </div>
    
 
 
 </body>
-<script src="../JS/mostrarEndereço.js"></script>
+<script src="../JS/mostrarEndereco.js"></script>
 <script src="../JS/atualizarEndereco.js"></script>
+<script src="../JS/deletarEndereco.js"></script>
+
 </html>
